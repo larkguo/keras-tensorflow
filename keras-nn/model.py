@@ -7,7 +7,7 @@ from keras.layers import Dense
 from keras.layers import Dropout
 from keras.models import model_from_json
 import numpy
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 # fix random seed for reproducibility
 numpy.random.seed(7)
