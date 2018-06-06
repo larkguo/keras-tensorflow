@@ -9,7 +9,7 @@ import os
 numpy.random.seed(1)
 
 # 1. 导入数据
-dataset = numpy.loadtxt("pima-indians-diabetes.csv",delimiter=",")
+dataset = numpy.loadtxt("data/pima-indians-diabetes.csv",delimiter=",")
 # split into input (X) and output (Y) variables
 X = dataset[:,0:8] # pima-indians-diabetes.csv 每行前8个值
 Y = dataset[:,8] # pima-indians-diabetes.csv 每行第9个值
