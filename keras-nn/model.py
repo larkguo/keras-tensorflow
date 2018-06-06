@@ -3,6 +3,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
 import numpy
+import matplotlib.pyplot as plt
 
 # fix random seed for reproducibility
 numpy.random.seed(7)
@@ -31,7 +32,8 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 #使用训练数据集不断调整网络上各节点的权重
 #网络模型会使用反向传播算法进行训练，并根据编译模型时指定的优化算法和损失函数进行优化。
 #训练周期为150，每次数据量为10
-model.fit(X, Y, epochs=150, batch_size=10, verbose=0)
+#history contains summary of the training loss and metrics recoded each epoch
+history = model.fit(X, Y, epochs=150, batch_size=10, verbose=0)
 
 # 5. 保存模型
 model_json = model.to_json()
@@ -54,5 +56,22 @@ predictions = model.predict(X) #predicting Y only using X
 rounded = [int(numpy.round(x, 0)) for x in predictions]
 accuracy = numpy.mean(rounded == Y)
 print("Prediction Accuracy: %.2f%%" % (accuracy*100))
+
+'''
+# 绘制fit训练历史数据acc准确率，loss损失
+print(history.history.keys())
+plt.plot(history.history['acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train'], loc='upper left')
+plt.show()
+plt.plot(history.history['loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train'], loc='upper left')
+plt.show()
+'''
 
 
