@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # 根据之前训练的模型，预测新数据得糖尿病的几率
 from keras.models import Sequential
 from keras.layers import Dense

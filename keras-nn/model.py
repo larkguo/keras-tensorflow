@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # 多层感知神经网络,创建预测糖尿病模型
 from keras.models import Sequential
 from keras.layers import Dense
