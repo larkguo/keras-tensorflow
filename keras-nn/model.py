@@ -1,6 +1,7 @@
 # 多层感知神经网络,创建预测糖尿病模型
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.layers import Dropout
 from keras.models import model_from_json
 import numpy
 import matplotlib.pyplot as plt
@@ -19,7 +20,10 @@ Y = dataset[:,8] # pima-indians-diabetes.csv 每行第9个值
 # 输出层具有1个神经元，激活函数采用的是sigmoid
 model = Sequential()
 model.add(Dense(12, input_dim=8, kernel_initializer='uniform', activation='relu'))
+#Dropout 应用于输入，防止过拟合，此处丢弃的输入比例为0.1
+model.add(Dropout(0.1))
 model.add(Dense(8, kernel_initializer='uniform', activation='relu'))
+model.add(Dropout(0.1))
 model.add(Dense(1, kernel_initializer='uniform', activation='sigmoid'))
 
 # 3. 编译模型
