@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 # 多层感知神经网络,创建预测糖尿病模型
@@ -28,6 +27,7 @@ model.add(Dropout(0.1))
 model.add(Dense(8, kernel_initializer='uniform', activation='relu'))
 model.add(Dropout(0.1))
 model.add(Dense(1, kernel_initializer='uniform', activation='sigmoid'))
+model.summary()
 
 # 3. 编译模型
 #编译过程将我们所定义的简单的图层序列模型转换成一系列可以高效执行的矩阵
