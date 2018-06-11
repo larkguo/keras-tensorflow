@@ -7,8 +7,10 @@
 
 debug信息：
     ./debug/6-1.png 图中数字为:'5'
-    x_train.shape: (1, 28, 28) x_train samples: 1
+    x_train.shape: (1, 28, 28) samples: 1
     y_train.shape: (1,) y_train: [6.]
+    x_train.shape: (1, 28, 28, 1) samples: 1
+    y_train.shape: (1, 10) y_train: [[0. 0. 0. 0. 0. 0. 1. 0. 0. 0.]]
     Epoch 1/2
 
     1/1 [==============================] - 1s 554ms/step - loss: 1.3771 - acc: 0.0000e+00
@@ -100,7 +102,7 @@ model.compile(loss=keras.losses.categorical_crossentropy,
 model.fit(x_train, y_train,batch_size,epochs,verbose=1)
 
 #打印模型，未变化
-#model.summary()
+model.summary()
 ############################# 3. 再次识别正确 ##############################
 
 print("%s 图中数字为:\"%d\""%(file,model.predict_classes(pic_reshape, verbose=0)[0]))
