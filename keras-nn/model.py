@@ -11,7 +11,8 @@ import numpy
 # fix random seed for reproducibility
 numpy.random.seed(7)
 
-# 1. 导入数据
+# 1. 准备数据
+# 数据预处理：导入数据集，区分训练和验证数据
 dataset = numpy.loadtxt("data/pima-indians-diabetes.csv",delimiter=",")
 # split into input (X) and output (Y) variables
 X = dataset[:,0:8] # pima-indians-diabetes.csv 每行前8个值
@@ -30,27 +31,28 @@ model.add(Dense(1, kernel_initializer='uniform', activation='sigmoid'))
 model.summary()
 
 # 3. 编译模型
-#编译过程将我们所定义的简单的图层序列模型转换成一系列可以高效执行的矩阵
-#优化器和损失函数类型分别为：adam 和 binary_crossentropy
-#keras默认测量loss损失率，还可手动添加accuracy准确性。
+# 编译过程将我们所定义的简单的图层序列模型转换成一系列可以高效执行的矩阵
+# 优化器和损失函数类型分别为：adam 和 binary_crossentropy
+# keras默认测量loss损失率，还可手动添加accuracy准确性。
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # 4. 训练模型
-#使用训练数据集不断调整网络上各节点的权重
-#网络模型会使用反向传播算法进行训练，并根据编译模型时指定的优化算法和损失函数进行优化。
-#训练周期为150，每次数据量为10
-#history contains summary of the training loss and metrics recoded each epoch
+# 使用训练数据集不断调整网络上各节点的权重
+# 网络模型会使用反向传播算法进行训练，并根据编译模型时指定的优化算法和损失函数进行优化。
+# 训练周期为150，每次数据量为10
+# history contains summary of the training loss and metrics recoded each epoch
 history = model.fit(X, Y, epochs=150, batch_size=10, verbose=0)
 
 # 5. 保存模型
+# 模型为JSON或YAML格式,模型权重保存为HDF5格式
 model_json = model.to_json()
 with open("model.json", "w") as json_file:
     json_file.write(model_json)
-# serialize weights to HDF5
 model.save_weights("model.h5")
 print("Saved model to disk")
 
 # 6. 评估模型
+# 评估loss损失率和accuracy准确率
 scores = model.evaluate(X, Y, verbose=0)
 print("%s:%.2f, %s:%.2f%%"
       %(model.metrics_names[0],scores[0],model.metrics_names[1],scores[1]*100))
