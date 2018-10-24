@@ -6,7 +6,8 @@ from keras.layers import Dense
 from keras.layers import Dropout
 from keras.models import model_from_json
 import numpy
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from keras.callbacks import TensorBoard
 
 # fix random seed for reproducibility
 numpy.random.seed(7)
@@ -41,7 +42,8 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 # 网络模型会使用反向传播算法进行训练，并根据编译模型时指定的优化算法和损失函数进行优化。
 # 训练周期为150，每次数据量为10
 # history contains summary of the training loss and metrics recoded each epoch
-history = model.fit(X, Y, epochs=150, batch_size=10, verbose=0)
+history = model.fit(X,Y,epochs=150,batch_size=10,verbose=0,
+                    callbacks=[TensorBoard(log_dir='data')])
 
 # 5. 保存模型
 # 模型为JSON或YAML格式,模型权重保存为HDF5格式
