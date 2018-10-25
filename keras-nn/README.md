@@ -18,9 +18,6 @@
    
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/steps.png) 
 
-   网络原理：
-   
-![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/network.png) 
 
    准备数据,pima-indians-diabetes.csv为糖尿病大数据：
    
@@ -127,7 +124,7 @@
 		'''
 
 ###
-		启动TensorBoard：
+		启动TensorBoard,可视化之前训练日志log_dir： tensorboard --logdir=data 
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/tensorboard-start.PNG) 
 	
 		TensorBoard查看神经网络模型，可看到每层dense有反馈：
