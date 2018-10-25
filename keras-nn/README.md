@@ -145,6 +145,7 @@
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/use-model.PNG) 
 
 训练代码见[use_model.py](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/use_model.py):
+
 		#!/usr/bin/python
 		# -*- coding: utf-8 -*-
 
