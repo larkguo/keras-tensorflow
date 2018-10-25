@@ -13,26 +13,31 @@
 ## 2. 模型训练
 
 ### 
+
    训练过程：
+   
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/steps.png) 
 
    网络原理：
+   
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/network.png) 
 
    准备数据,pima-indians-diabetes.csv为糖尿病大数据：
+   
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/pima-indians-diabetes.PNG)
+
     每一行有以下9项：
-		# 1. Number of times pregnant 怀孕的次数
-		# 2. Plasma glucose concentration a 2 hours in an oral glucose tolerance test 在口服葡萄糖耐量试验中2小时的血浆葡萄糖浓度
-		# 3. Diastolic blood pressure (mm Hg) 舒张压（mm Hg）
-		# 4. Triceps skin fold thickness (mm) 三头肌皮褶厚度（mm）
-		# 5. 2-Hour serum insulin (mu U/ml) 2小时血清胰岛素（mu U / ml）
-		# 6. Body mass index (weight in kg/(height in m)^2) 体重指数（体重（kg）/身高（m）^ 2）
-		# 7. Diabetes pedigree function 糖尿病谱系功能
-		# 8. Age (years) 年龄（岁）
-		# 9. Class variable (0 or 1) 类变量（0为费糖尿病，1为糖尿病）
+		1. Number of times pregnant 怀孕的次数
+		2. Plasma glucose concentration a 2 hours in an oral glucose tolerance test 在口服葡萄糖耐量试验中2小时的血浆葡萄糖浓度
+		3. Diastolic blood pressure (mm Hg) 舒张压（mm Hg）
+		4. Triceps skin fold thickness (mm) 三头肌皮褶厚度（mm）
+		5. 2-Hour serum insulin (mu U/ml) 2小时血清胰岛素（mu U / ml）
+		6. Body mass index (weight in kg/(height in m)^2) 体重指数（体重（kg）/身高（m）^ 2）
+		7. Diabetes pedigree function 糖尿病谱系功能
+		8. Age (years) 年龄（岁）
+		9. Class variable (0 or 1) 类变量（0为费糖尿病，1为糖尿病）
 		
-    训练代码见[worker-pool.go](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/model.py):
+训练代码见[worker-pool.go](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/model.py):
     
 		# -*- coding: utf-8 -*-
 
@@ -121,13 +126,14 @@
 		plt.show()
 		'''
 
+###
 		启动TensorBoard：
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/tensorboard-start.PNG) 
 	
 		TensorBoard查看神经网络模型，可看到每层dense有反馈：
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/tensorboard-graphs.png) 
 	
-		训练后生成model.json模型和model.h5权重，模型准确率达79.04%:
+		训练后生成model.json模型和model.h5权重，模型准确率达 79.04%:
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/model.PNG) 
 		
 
