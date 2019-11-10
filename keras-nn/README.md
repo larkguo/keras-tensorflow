@@ -125,7 +125,7 @@
 
 ###
 		启动TensorBoard,可视化之前训练日志log_dir： tensorboard --logdir=data 
-![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/tensorboard-start.PNG) 
+![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/tensorboard-start.png) 
 	
 		TensorBoard查看神经网络模型，可看到每层dense有反馈：
 ![image](https://github.com/larkguo/keras-tensorflow/blob/master/keras-nn/data/tensorboard-graphs.png) 
